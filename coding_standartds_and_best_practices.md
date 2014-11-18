@@ -8,9 +8,9 @@
 
 [여기](http://lab.abhinayrathore.com/jquery-standards/#jQueryCND)에 가장 인기있는 jQuery CDN 리스트가 있습니다.
 
-2. Implement a fallback to your locally hosted library of same version as shown above. [More Info](http://css-tricks.com/snippets/jquery/fallback-for-cdn-hosted-jquery/)
+2. Implement a fallback to your locally hosted library of same version as shown above. [More Info](http://css-tricks.com/snippets/jquery/fallback-for-cdn-hosted-jquery/) 위의 예시처럼 여러분의 로컬 호스트에 동일한 버전의 대체 코드를 마련해두는 것이 좋습니다. [더 보기](http://css-tricks.com/snippets/jquery/fallback-for-cdn-hosted-jquery/)
 
-3. Use [protocol-relative/protocol-independent](http://www.paulirish.com/2010/the-protocol-relative-url/) URL (leave http: or https: out) as shown above.
+3. Use [protocol-relative/protocol-independent](http://www.paulirish.com/2010/the-protocol-relative-url/) URL (leave http: or https: out) as shown above. 위 예시 처럼 [상대적 프로토콜(protocol-relative/protocol-independent)](http://www.paulirish.com/2010/the-protocol-relative-url/) URL을 사용하십시요.
 
 4. If possible, keep all your JavaScript and jQuery includes at the bottom of your page.[More Info ](http://developer.yahoo.com/blogs/ydn/high-performance-sites-rule-6-move-scripts-bottom-7200.html) and a sample on [HTML5 Boilerplate ](https://github.com/h5bp/html5-boilerplate/blob/master/index.html).
 
