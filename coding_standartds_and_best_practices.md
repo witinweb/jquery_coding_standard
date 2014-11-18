@@ -12,23 +12,23 @@
 
 3. Use [protocol-relative/protocol-independent](http://www.paulirish.com/2010/the-protocol-relative-url/) URL (leave http: or https: out) as shown above. 위 예시 처럼 [상대적 프로토콜(protocol-relative/protocol-independent)](http://www.paulirish.com/2010/the-protocol-relative-url/) URL을 사용하십시요.
 
-4. If possible, keep all your JavaScript and jQuery includes at the bottom of your page.[More Info ](http://developer.yahoo.com/blogs/ydn/high-performance-sites-rule-6-move-scripts-bottom-7200.html) and a sample on [HTML5 Boilerplate ](https://github.com/h5bp/html5-boilerplate/blob/master/index.html).
+4. If possible, keep all your JavaScript and jQuery includes at the bottom of your page.[More Info ](http://developer.yahoo.com/blogs/ydn/high-performance-sites-rule-6-move-scripts-bottom-7200.html) and a sample on [HTML5 Boilerplate ](https://github.com/h5bp/html5-boilerplate/blob/master/index.html). 가능하다면, 자바스크립트와 제이쿼리 파일들을 페이지 하단에 삽입하십시요. [더 많은 정보](http://developer.yahoo.com/blogs/ydn/high-performance-sites-rule-6-move-scripts-bottom-7200.html) 그리고 [HTML5 Boilerplate ](https://github.com/h5bp/html5-boilerplate/blob/master/index.html)
 
-5. What version to use?
+5. What version to use? 어떤 버전을 사용해야하나?
 
-- DO NOT use jQuery version 2.x if you support Internet Explorer 6/7/8.
+- DO NOT use jQuery version 2.x if you support Internet Explorer 6/7/8. 만약 여러분이 인터넷 익스플로러 6/7/8을 지원해야 한다면 2.x 버전을 사용하지 마십시요. 
 
-- For new web-apps, if you do not have any plugin compatibility issue, it's highly recommended to use the latest jQuery version.
+- For new web-apps, if you do not have any plugin compatibility issue, it's highly recommended to use the latest jQuery version. 만약 호환성 이슈가 있는 플러그인을 사용하지 않는 새로운 앱의 경우 가장 최신 버전을 사용하는 것을 강력하게 권합니다.
 
-- When loading jQuery from CDN's, always specify the complete version number you want to load (Example: _1.11.0_ as opposed to _1.11_ or just    _1_).
+- When loading jQuery from CDN's, always specify the complete version number you want to load (Example: _1.11.0_ as opposed to _1.11_ or just    _1_). CDN을 통해 제이쿼리를 로딩하고자 할때 항상 정확한 버전의 숫자를 기입하십시오.
 
-- DO NOT load multiple jQuery versions.
+- DO NOT load multiple jQuery versions. 여러개의 버전을 동시에 로드하지 마십시오.
 
-- DO NOT use [jquery-latest.js from jQuery CDN](http://blog.jquery.com/2014/07/03/dont-use-jquery-latest-js/).
+- DO NOT use [jquery-latest.js from jQuery CDN](http://blog.jquery.com/2014/07/03/dont-use-jquery-latest-js/). 제이쿼리 CDN으로 로드하고자 할때 [jquery-latest.js](http://blog.jquery.com/2014/07/03/dont-use-jquery-latest-js/)을 사용하지 마십시요.
 
-6 If you are using other libraries like Prototype, MooTools, Zepto etc. that uses $ sign as well, try not to use $ for calling jQuery functions and instead use jQuery simply. You can return control of $ back to the other library with a call to $.noConflict().
+6 If you are using other libraries like Prototype, MooTools, Zepto etc. that uses $ sign as well, try not to use $ for calling jQuery functions and instead use jQuery simply. You can return control of $ back to the other library with a call to $.noConflict(). 만약 $ 표시를 사용하는 Protorype, MooTools, Zepto 등과 같은 다른 라이브러리와 함께 사용한다면 제이쿼리 함수를 호출하기 위해 $를 사용하는 대신 jQuery를 사용하십시요. $.noConflict()를 호출함으로서 $의 제어를 다른 라이브러리에게 양보할 수 있습니다.
 
-7. For advanced browser feature detection, use [Modernizr ](http://modernizr.com/).
+7. For advanced browser feature detection, use [Modernizr](http://modernizr.com/). 더 진보한 브라우저를 위해 [Modernizr](http://modernizr.com/)를 사용하십시요.
 
 # jQuery Variables
 
