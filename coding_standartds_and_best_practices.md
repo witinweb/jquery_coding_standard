@@ -140,9 +140,9 @@ Performance comparison: [http://jsperf.com/jquery-append-vs-string-concat ](http
 
 # Events
 
-1. Use only one Document Ready handler per page. It makes it easier to debug and keep track of the behavior flow.
+1. Use only one Document Ready handler per page. It makes it easier to debug and keep track of the behavior flow. 하나의 페이지에서는 Document Ready 핸들러를 한 번만 사용하십시요. 디버깅을 더 쉽게해주고 동작의 흐름을 추적할 수 있습니다.
 
-2. DO NOT use anonymous functions to attach events. Anonymous functions are difficult to debug, maintain, test, or reuse. [More Info ](http://learn.jquery.com/code-organization/beware-anonymous-functions/)
+2. DO NOT use anonymous functions to attach events. Anonymous functions are difficult to debug, maintain, test, or reuse. [More Info ](http://learn.jquery.com/code-organization/beware-anonymous-functions/) 이벤트에 익명함수를 사용하지 마십시오. 익명함수는 디버깅, 유지보수, 테스트 또는 재사용을 어렵게 합니다.
 
     $("#myLink").on("click", function(){...}); // BAD
     
@@ -150,17 +150,17 @@ Performance comparison: [http://jsperf.com/jquery-append-vs-string-concat ](http
     function myLinkClickHandler(){...}
     $("#myLink").on("click", myLinkClickHandler);
 
-3. Document ready event handler should not be an anonymous function. Once again, anonymous functions are difficult to debug, maintain, test, or reuse.
+3. Document ready event handler should not be an anonymous function. Once again, anonymous functions are difficult to debug, maintain, test, or reuse. Document ready 이벤트 핸들러를 익명함수로 만들지 마십시오. 다시말하지만 익명함수는 디버깅, 유지보수, 테스트 또는 재사용을 어렵게 합니다.
 
-    $(function(){ ... }); // BAD: You can never reuse or write a test for this function.
+    $(function(){ ... }); // BAD: You can never reuse or write a test for this function. 이 함수를 결코 재사용할 수 없거나 테스트로 작성할 수 없습니다.
     
     // GOOD
     $(initPage); // or $(document).ready(initPage);
     function initPage(){
-        // Page load event where you can initialize values and call other initializers.
+        // Page load event where you can initialize values and call other initializers. 
     }
 
-4. Document ready event handlers should be included from external files and inline JavaScript can be used to call the ready handle after any initial setup.
+4. Document ready event handlers should be included from external files and inline JavaScript can be used to call the ready handle after any initial setup. Document ready 이벤트 핸들러를 외부 파일로 삽입시킬 수도 있습니다. 그리고 인라인 자바스크립트는 초기 설정 후 ready 핸들을 호출하는 데 사용할 수 잇습니다. 
 
     <script src="my-document-ready.js"></script>
     <script>
@@ -169,27 +169,27 @@ Performance comparison: [http://jsperf.com/jquery-append-vs-string-concat ](http
     </script>
 
 5. DO NOT use behavioral markup in HTML (JavaScript inlining), these are debugging nightmares. Always bind events with jQuery to be consistent so it's
-easier to attach and remove events dynamically.
+easier to attach and remove events dynamically. HTML에 동적 마크업을 사용하지 마십시오(JavaScript inlining), 이것은 디버깅의 악몽입니다. 항상 일관되게 제이쿼리로 이벤트를 바인드 하면 이벤트를 동적으로 붙이거나 제거하기 쉽습니다.
 
     <a id="myLink" href="#" onclick="myEventHandler();">my link</a> <!-- BAD -->
 
     $("#myLink").on("click", myEventHandler); // GOOD
 
-6. When possible, use custom [namespace ](http://api.jquery.com/event.namespace/) for events. It's easier to unbind the exact
-event that you attached without affecting other events bound to the DOM element.
+6. When possible, use custom [namespace](http://api.jquery.com/event.namespace/) for events. It's easier to unbind the exact
+event that you attached without affecting other events bound to the DOM element. 가능하면 이벤트의 [네임스페이스](http://api.jquery.com/event.namespace/)를 커스텀하여 사용하십시오. 돔 엘리먼트에 연결된 다른 이벤트에 영향을 주게 붙여놓은 이벤트를 정확하게 해제하기가 쉽습니다.
 
     $("#myLink").on("click.mySpecialClick", myEventHandler); // GOOD
     // Later on, it's easier to unbind just your click event
     $("#myLink").unbind("click.mySpecialClick");
 
-7. Use [event delegation ](http://learn.jquery.com/events/event-delegation/) when you have to attach same event to multiple
+7. Use [event delegation](http://learn.jquery.com/events/event-delegation/) when you have to attach same event to multiple
 elements. Event delegation allows us to attach a single event listener, to a parent element, that will fire for all descendants matching a selector,
-whether those descendants exist now or are added in the future.
+whether those descendants exist now or are added in the future. 여러 요소에 같은 이벤트를 붙이려 할때에는 [이벤트 위임](http://learn.jquery.com/events/event-delegation/)을 사용하십시오. 이벤트 위임은 하나의 부모 엘리먼트에 하나의 이벤트 리스터 만을 붙이며 이것으로 선택자와 매칭되는  모든 자손에게(그 자손이 지금 존재하든지 미래에 추가되던지 간에) 이벤트가 일어나게 됩니다. 
 
     $("#list a").on("click", myClickHandler); // BAD, you are attaching an event to all the links under the list.
     $("#list").on("click", "a", myClickHandler); // GOOD, only one event handler is attached to the parent.
 
-# Ajax
+# Ajax 아작스
 
 1. Avoid using _.getJson()_ or_ _.get(), simply use the $.ajax() as that's what gets called internally.
 
