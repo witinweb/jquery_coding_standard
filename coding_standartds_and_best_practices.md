@@ -28,18 +28,18 @@
 
 6 If you are using other libraries like Prototype, MooTools, Zepto etc. that uses $ sign as well, try not to use $ for calling jQuery functions and instead use jQuery simply. You can return control of $ back to the other library with a call to $.noConflict(). 만약 $ 표시를 사용하는 Protorype, MooTools, Zepto 등과 같은 다른 라이브러리와 함께 사용한다면 제이쿼리 함수를 호출하기 위해 $를 사용하는 대신 jQuery를 사용하십시요. $.noConflict()를 호출함으로서 $의 제어를 다른 라이브러리에게 양보할 수 있습니다.
 
-7. For advanced browser feature detection, use [Modernizr](http://modernizr.com/). 더 진보한 브라우저를 위해 [Modernizr](http://modernizr.com/)를 사용하십시요.
+7. For advanced browser feature detection, use [Modernizr](http://modernizr.com/). 고급 브라우저 기능 탐지를 할 수 있는 [Modernizr](http://modernizr.com/)를 사용하십시요.
 
-# jQuery Variables
+# jQuery Variables 제이쿼리 변수
 
-1. All variables that are used to store/cache jQuery objects should have a name prefixed with a $.
+1. All variables that are used to store/cache jQuery objects should have a name prefixed with a $. 제이쿼리 객체로 저장/캐쉬 하기위해 사용되는 모든 변수는 이름 앞에 $가 있어야 합니다.
 
-2. Always cache your jQuery selector returned objects in variables for reuse.
+2. Always cache your jQuery selector returned objects in variables for reuse. 재사용을 위해 항상 객체를 반환하는 제이쿼리 선택자를 변수에 담아 사용하십시요.
     
     var $myDiv = $("#myDiv");
     $myDiv.click(function(){...});
 
-3. Use [camel case ](http://en.wikipedia.org/wiki/CamelCase) for naming variables.
+3. Use [camel case ](http://en.wikipedia.org/wiki/CamelCase) for naming variables. 변수의 이름은 [camel case ](http://en.wikipedia.org/wiki/CamelCase)를 사용하십시요.
 
 # Selectors
 
