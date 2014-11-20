@@ -242,7 +242,7 @@ descendant elements that are added to the document at a later time (example Ajax
     jqxhr.done(successHandler);
     jqxhr.fail(failureHandler);
 
-# Effects and Animations
+# Effects and Animations 효과와 애니메이션
 
 1. Adopt a restrained and consistent approach to implementing animation functionality. 애니메이션 기능을 구현하기위해 절제되고 일관된 접근 방법을 채택하십시오.
 
@@ -252,7 +252,7 @@ descendant elements that are added to the document at a later time (example Ajax
 
 - Try to use predefined animations durations of "slow", "fast" or 400 (for medium). 미리정의된 애니메이션 속도인 "slog", "fast"를 사용하거나 중간속도를 위해서는 400을 사용하는 것이 좋습니다.
 
-# Plugins
+# Plugins 플러그인
 
 1. Always choose a plugin with good support, documentation, testing and community support. 플러그인을 선택할 때는 기술지원, 문서, 테스트 그리고 커뮤니티가 좋은지 따져 선택하십시오.
 
@@ -260,9 +260,9 @@ descendant elements that are added to the document at a later time (example Ajax
 
 3. Any common reusable component should be implemented as a jQuery plugin.    [Click here](http://lab.abhinayrathore.com/jquery-standards/#jQueryPluginBoilerplate) for jQuery Plugin Boilerplate code. 어떤 공통의 재사용가능한 컴포넌트는 제이쿼리 플러그인으로 구현되야 합니다. 
 
-# Chaining
+# Chaining 체인
 
-1. Use chaining as an alternative to variable caching and multiple selector calls. 변수를 저장하고 동시에 여러 선택자를 호출하기위한 대안으로 chaining을 사용하십시오.
+1. Use chaining as an alternative to variable caching and multiple selector calls. 변수를 저장하고 동시에 여러 선택자를 호출하기위한 대안으로 체인을 사용하십시오.
 
     $("#myDiv").addClass("error").show();
 
@@ -277,7 +277,7 @@ readable. 체인의 링크가 3개가 넘거나 이벤트 할당으로 복잡해
 
 3. For long chains it is acceptable to cache intermediate objects in a variable. 긴 체인으로 변수에 중간 객체를 캐쉬하는 것이 가능해집니다.
 
-# Miscellaneous
+# Miscellaneous 기타
 
 1. Use Object literals for parameters. 복수의 파라미터는 객체 표현식을 사용하십시오.
 
