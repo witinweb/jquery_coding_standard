@@ -37,6 +37,7 @@
 2. Always cache your jQuery selector returned objects in variables for reuse. 재사용을 위해 항상 객체를 반환하는 제이쿼리 선택자를 변수에 담아 사용하십시요.
     
     var $myDiv = $("#myDiv");
+
     $myDiv.click(function(){...});
 
 <<<<<<< HEAD
@@ -55,11 +56,13 @@ jQuery 선택자는 언제나 재사용을 위한 변수의 객체를 반환합�
     [Performance Comparison 성능비교 ](http://jsperf.com/jqeury-selector-test)
 
     var $products = $("div.products"); // SLOW
+
     var $products = $(".products"); // FAST
 
 3. Use find for _Id->Child_ nested selectors. The .find() approach is faster because the first selection is handled without going through the Sizzle selector engine. [More Info ](http://learn.jquery.com/performance/optimize-selectors/) Id의 자식집합 선택자를 위해서 find 사용하세요. 왜냐하면  첫번째 선택이 Sizzle selector engine 을 거치지 않기 때문에 더 빠릅니다. [더 보기 ](http://learn.jquery.com/performance/optimize-selectors/)
 
     // BAD, a nested query for Sizzle selector engine
+
     var $productIds = $("#products div.id");
 
     // GOOD, #products is already selected by document.getElementById() so only div.id needs to go through Sizzle selector engine. #products는 이미 document.getElementById() 에 의해서 선택되어 지므로 div.id에만 Sizzle selector engine을 거칩니다.
@@ -69,15 +72,19 @@ jQuery 선택자는 언제나 재사용을 위한 변수의 객체를 반환합�
 4. Be specific on the right-hand side of your selector, and less specific on the left. [More Info ](http://learn.jquery.com/performance/optimize-selectors/) 오른쪽편에 특별히 사용할 선택자를 위치하고 나머지는 왼쪽에 위치시킵니다. [더 보기 ](http://learn.jquery.com/performance/optimize-selectors/)
 
     // Unoptimized
+
     $("div.data .gonzalez");
 
     // Optimized
+
     $(".data td.gonzalez");
 
 5. Avoid Excessive Specificity. [More Info ](http://learn.jquery.com/performance/optimize-selectors/),    [Performance Comparison ](http://jsperf.com/avoid-excessive-specificity) 복잡한 표현 방식은 피합니다. [더 보기 ](http://learn.jquery.com/performance/optimize-selectors/),    [성능 비교 ](http://jsperf.com/avoid-excessive-specificity)
 
     $(".data table.attendees td.gonzalez");
+
     // Better: Drop the middle if possible.
+
     $(".data td.gonzalez");
 
 6. Give your Selectors a Context. 선택자에 범위를 기제합니다.
@@ -93,18 +100,23 @@ jQuery 선택자는 언제나 재사용을 위한 변수의 객체를 반환합�
 7. Avoid Universal Selectors. [More Info ](http://learn.jquery.com/performance/optimize-selectors/) 유니버셜 선택자(*) 사용을 피합니다. [더 보기 ](http://learn.jquery.com/performance/optimize-selectors/)
 
     $('div.container > *'); // BAD
+
     $('div.container').children(); // BETTER
 
 8. Avoid Implied Universal Selectors. When you leave off the selector, the universal selector (*) is still implied.    [More Info ](http://learn.jquery.com/performance/optimize-selectors/) 암시적인 유니버셜 선택자는 피합니다. 셀렉터를 중단할 때, 유니버셜 선택자(*)는 여전히 암시 됩니다.  [더 보기 ](http://learn.jquery.com/performance/optimize-selectors/)
 
     $('div.someclass :radio'); // BAD
+
     $('div.someclass input:radio'); // GOOD
 
 9. Don’t Descend Multiple IDs or nest when selecting an ID. ID-only selections are handled using document.getElementById() so don't mix them with other selectors. ID를 선택할 때 중복 또는 다중 선택하지 마세요. document.getElementById를 사용하여 처리되기 때문에 다른선택자와 혼용하지말고 오직 ID선택자만 사용합니다. 
 
     $('#outer #inner'); // BAD
+
     $('div#inner'); // BAD
+
     $('.outer-container #inner'); // BAD
+
     $('#inner'); // GOOD, only calls document.getElementById()
 
 # DOM Manipulation DOM 조작
@@ -112,7 +124,9 @@ jQuery 선택자는 언제나 재사용을 위한 변수의 객체를 반환합�
 1. Always detach any existing element before manipulation and attach it back after manipulating it.    [More Info ](http://learn.jquery.com/performance/detach-elements-before-work-with-them/)  항상 조작하기 전에 기존 요소를 분리하고 조작 후 다시 연결합니다.  [더 보기 ](http://learn.jquery.com/performance/detach-elements-before-work-with-them/)
 
     var $myList = $("#list-container > ul").detach();
+
     //...a lot of complicated things on $myList
+
     $myList.appendTo("#list-container");
 
 2. Use string concatenation or array.join() over .append().    [More Info ](http://learn.jquery.com/performance/append-outside-loop/)
@@ -120,23 +134,39 @@ Performance comparison: [http://jsperf.com/jquery-append-vs-string-concat ](http
 성능 비교: [http://jsperf.com/jquery-append-vs-string-concat ](http://jsperf.com/jquery-append-vs-string-concat) 
 
     // BAD
+
     var $myList = $("#list");
+
     for(var i = 0; i < 10000; i++){
+
         $myList.append("<li>"+i+"</li>");
+
     }
+
     // GOOD
+
     var $myList = $("#list");
+
     var list = "";
+
     for(var i = 0; i < 10000; i++){
+
         list += "<li>"+i+"</li>";
+
     }
+
     $myList.html(list);
 
     // EVEN FASTER
+
     var array = [];
+
     for(var i = 0; i < 10000; i++){
+
         array[i] = "<li>"+i+"</li>";
+
     }
+
     $myList.html(array.join(''));
 
 3. Don’t Act on Absent Elements. [More Info ](http://learn.jquery.com/performance/dont-act-on-absent-elements/)  요소의 존재를 확인하고 실행하세요. [더 보기 ](http://learn.jquery.com/performance/dont-act-on-absent-elements/) 
@@ -146,9 +176,13 @@ Performance comparison: [http://jsperf.com/jquery-append-vs-string-concat ](http
     $("#nosuchthing").slideUp();
 
     // GOOD
+
     var $mySelection = $("#nosuchthing");
+
     if ($mySelection.length) {
+
         $mySelection.slideUp();
+
     }
 
 # Events
