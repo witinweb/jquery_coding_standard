@@ -244,30 +244,30 @@ descendant elements that are added to the document at a later time (example Ajax
 
 # Effects and Animations
 
-1. Adopt a restrained and consistent approach to implementing animation functionality.
+1. Adopt a restrained and consistent approach to implementing animation functionality. 애니메이션 기능을 구현하기위해 절제되고 일관된 접근 방법을 채택하십시오.
 
-2. DO NOT over-do the animation effects until driven by the UX requirements.
+2. DO NOT over-do the animation effects until driven by the UX requirements. UX 요구사항이 있기 전에 애니메이션 효과를 과도하게 하지 마십시오.
 
-- Try to use simeple show/hide, toggle and slideUp/slideDown functionality to toggle elements.
+- Try to use simeple show/hide, toggle and slideUp/slideDown functionality to toggle elements. 토글 요소를 위해 show/hide, toggle 그리고 slideUp/slideDown 과 같이 간단한 기능을 사용하는것이 좋습니다.
 
-- Try to use predefined animations durations of "slow", "fast" or 400 (for medium).
+- Try to use predefined animations durations of "slow", "fast" or 400 (for medium). 미리정의된 애니메이션 속도인 "slog", "fast"를 사용하거나 중간속도를 위해서는 400을 사용하는 것이 좋습니다.
 
 # Plugins
 
-1. Always choose a plugin with good support, documentation, testing and community support.
+1. Always choose a plugin with good support, documentation, testing and community support. 플러그인을 선택할 때는 기술지원, 문서, 테스트 그리고 커뮤니티가 좋은지 따져 선택하십시오.
 
-2. Check the compatibility of plugin with the version of jQuery that you are using.
+2. Check the compatibility of plugin with the version of jQuery that you are using. 플러그인이 여러분이 사용하는 제이쿼리 버전과 호환되는지 체크하십시오.
 
-3. Any common reusable component should be implemented as a jQuery plugin.    [Click here](http://lab.abhinayrathore.com/jquery-standards/#jQueryPluginBoilerplate) for jQuery Plugin Boilerplate code.
+3. Any common reusable component should be implemented as a jQuery plugin.    [Click here](http://lab.abhinayrathore.com/jquery-standards/#jQueryPluginBoilerplate) for jQuery Plugin Boilerplate code. 어떤 공통의 재사용가능한 컴포넌트는 제이쿼리 플러그인으로 구현되야 합니다. 
 
 # Chaining
 
-1. Use chaining as an alternative to variable caching and multiple selector calls.
+1. Use chaining as an alternative to variable caching and multiple selector calls. 변수를 저장하고 동시에 여러 선택자를 호출하기위한 대안으로 chaining을 사용하십시오.
 
     $("#myDiv").addClass("error").show();
 
 2. Whenever the chain grows over 3 links or gets complicated because of event assignment, use appropriate line breaks and indentation to make the code
-    readable.
+readable. 체인의 링크가 3개가 넘거나 이벤트 할당으로 복잡해지면 줄바꿈을 하고 들여쓰기를 통해 가독성을 높이십시요.
 
     $("#myLink")
         .addClass("bold")
@@ -275,11 +275,11 @@ descendant elements that are added to the document at a later time (example Ajax
         .on("mouseover", myMouseOverHandler)
         .show();
 
-3. For long chains it is acceptable to cache intermediate objects in a variable.
+3. For long chains it is acceptable to cache intermediate objects in a variable. 긴 체인으로 변수에 중간 객체를 캐쉬하는 것이 가능해집니다.
 
 # Miscellaneous
 
-1. Use Object literals for parameters.
+1. Use Object literals for parameters. 복수의 파라미터는 객체 표현식을 사용하십시오.
 
     $myLink.attr("href", "#").attr("title", "my link").attr("rel", "external"); // BAD, 3 calls to attr()
     // GOOD, only 1 call to attr()
@@ -289,28 +289,25 @@ descendant elements that are added to the document at a later time (example Ajax
         rel: "external"
     });
 
-2. Do not mix CSS with jQuery.
+2. Do not mix CSS with jQuery. 제이쿼리에 CSS를 혼용하지 마십시오.
 
     $("#mydiv").css({'color':red, 'font-weight':'bold'}); // BAD
+
     .error { color: red; font-weight: bold; } /* GOOD */
     $("#mydiv").addClass("error"); // GOOD
 
-3. DO NOT use Deprecated Methods. It is always important to keep an eye on deprecated methods for each new version and try avoid using them. [Click here ](http://api.jquery.com/category/deprecated/) for a list of deprecated methods.
+3. DO NOT use Deprecated Methods. It is always important to keep an eye on deprecated methods for each new version and try avoid using them. [Click here ](http://api.jquery.com/category/deprecated/) for a list of deprecated methods. 비추천 메소드를 사용하지 마십시오. 새 버전이 나올때 마다 비추천된 메소드가 있는지 주의깊게 살펴보고 그것들을 사용하지 않도록 하십시오. [비추천 메소드 리스트](http://api.jquery.com/category/deprecated/)
 
-4. Combine jQuery with native JavaScript when needed. See the performance difference for the example given below:    [http://jsperf.com/document-getelementbyid-vs-jquery/3 ](http://jsperf.com/document-getelementbyid-vs-jquery/3)
+4. Combine jQuery with native JavaScript when needed. See the performance difference for the example given below: [http://jsperf.com/document-getelementbyid-vs-jquery/3 ](http://jsperf.com/document-getelementbyid-vs-jquery/3) 필요하다면 기본 자바스크립트 코드와 제이쿼리를 함께 사용하십시요. 아래 주어진 예제에서 성능차이를 보십시요 : [http://jsperf.com/document-getelementbyid-vs-jquery/3 ](http://jsperf.com/document-getelementbyid-vs-jquery/3)
 
     $("#myId"); // is still little slower than...
     document.getElementById("myId");
 
-# Resources
+# Resources 자료
 
-* jQuery Performance: [http://learn.jquery.com/performance/ ](http://learn.jquery.com/performance/)
-* jQuery Learn: [http://learn.jquery.com ](http://learn.jquery.com/)
-* jQuery API Docs: [http://api.jquery.com/ ](http://api.jquery.com/)
-* jQuery Coding Standards and Best Practice: [http://www.jameswiseman.com/blog/2010/04/20/jquery-standards-and-best-practice/](http://www.jameswiseman.com/blog/2010/04/20/jquery-standards-and-best-practice/)
-*   jQuery Cheatsheet: [http://lab.abhinayrathore.com/jquery-cheatsheet/](http://lab.abhinayrathore.com/jquery-cheatsheet/)
-*   jQuery Plugin Boilerplate:[http://stefangabos.ro/jquery/jquery-plugin-boilerplate-revisited/](http://stefangabos.ro/jquery/jquery-plugin-boilerplate-revisited/)
-
-# Comments
-
-For any suggestions, questions or thanks, please drop a comment on my blog post:[http://web3o.blogspot.com/2014/03/jquery-coding-standards-and-best.html](http://web3o.blogspot.com/2014/03/jquery-coding-standards-and-best.html)
+* 제이쿼리 성능: http://learn.jquery.com/performance/ ](http://learn.jquery.com/performance/)
+* 제이쿼리 학습: [http://learn.jquery.com ](http://learn.jquery.com/)
+* 제이쿼리 API 문서: [http://api.jquery.com/ ](http://api.jquery.com/)
+* 제이쿼리 Coding Standards and Best Practice: [http://www.jameswiseman.com/blog/2010/04/20/jquery-standards-and-best-practice/](http://www.jameswiseman.com/blog/2010/04/20/jquery-standards-and-best-practice/)
+* 제이쿼리 Cheatsheet: [http://lab.abhinayrathore.com/jquery-cheatsheet/](http://lab.abhinayrathore.com/jquery-cheatsheet/)
+* 제이쿼리 플러그인 표준코드:[http://stefangabos.ro/jquery/jquery-plugin-boilerplate-revisited/](http://stefangabos.ro/jquery/jquery-plugin-boilerplate-revisited/)
