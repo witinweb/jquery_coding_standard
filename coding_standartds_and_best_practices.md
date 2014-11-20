@@ -191,11 +191,11 @@ whether those descendants exist now or are added in the future. 여러 요소에
 
 # Ajax 아작스
 
-1. Avoid using _.getJson()_ or_ _.get(), simply use the $.ajax() as that's what gets called internally.
+1. Avoid using _.getJson()_ or _.get()_, simply use the $.ajax() as that's what gets called internally. _.getJson()_이나 _.get()_의 사용을 피하고 $.ajax()를 사용하십시요.
 
-2. DO NOT use _http_ requests on _https_ sites. Prefer schemaless URLs (leave the protocol _http/https_ out of your URL)
+2. DO NOT use _http_ requests on _https_ sites. Prefer schemaless URLs (leave the protocol _http/https_ out of your URL) _https_ 사이트에서 _http_를 사용하지 마십시오. 스키마 없는 URL을 더 선호합니다.(여러분의 URL에서 _http/https_ 프로토콜을 제거하세요.)
 
-3. DO NOT put request parameters in the URL, send them using data object setting.
+3. DO NOT put request parameters in the URL, send them using data object setting. request 파라미터에 붙이지 말고 데이터 객체 설정을 사용하여 전달하십시오. 
 
     // Less readable...
     $.ajax({
@@ -209,14 +209,14 @@ whether those descendants exist now or are added in the future. 여러 요소에
         data: { param1: test1, param2: test2 }
     });
 
-4. Try to specify the _dataType_ setting so it's easier to know what kind of data you are working with. (See Ajax Template example below)
+4. Try to specify the _dataType_ setting so it's easier to know what kind of data you are working with. (See Ajax Template example below) _dataType_을 기입하는 것이 좋습니다. 그것은 어떤 종류의 데이터가 오고가는지 알기 더 쉽습니다.
 
 5. Use Delegated event handlers for attaching events to content loaded using Ajax. Delegated events have the advantage that they can process events from
-descendant elements that are added to the document at a later time (example Ajax). [More Info ](http://api.jquery.com/on/#direct-and-delegated-events)
+descendant elements that are added to the document at a later time (example Ajax). [More Info ](http://api.jquery.com/on/#direct-and-delegated-events) Ajax로 로딩된 컨텐츠에 이벤트를 붙이기 위해서 위임된 이벤트 핸들러를 사용하세요. 위임된 이벤트는 나중에 document에 추가된 자식요소들에게도 이벤트를 진행시킬 수 있는 이점이 있습니다.
 
     $("#parent-container").on("click", "a", delegatedClickHandlerForAjax);
 
-6. Use Promise interface: [More Examples ](http://www.htmlgoodies.com/beyond/javascript/making-promises-with-jquery-deferred.html)
+6. Use Promise interface: [More Examples ](http://www.htmlgoodies.com/beyond/javascript/making-promises-with-jquery-deferred.html) Promise 인터페이스를 사용하세요: [예제 더 보기](http://www.htmlgoodies.com/beyond/javascript/making-promises-with-jquery-deferred.html)
 
     $.ajax({ ... }).then(successHandler, failureHandler);
 
@@ -225,7 +225,7 @@ descendant elements that are added to the document at a later time (example Ajax
     jqxhr.done(successHandler);
     jqxhr.fail(failureHandler);
 
-7. Sample Ajax Template: [More Info ](https://api.jquery.com/jQuery.ajax/)
+7. Sample Ajax Template: [More Info ](https://api.jquery.com/jQuery.ajax/) Ajax 템플릿 샘플: [더 보기](https://api.jquery.com/jQuery.ajax/) 
 
     var jqxhr = $.ajax({
         url: url,
