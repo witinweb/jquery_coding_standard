@@ -63,6 +63,7 @@ jQuery 선택자는 언제나 재사용을 위한 변수의 객체를 반환합�
     var $productIds = $("#products div.id");
 
     // GOOD, #products is already selected by document.getElementById() so only div.id needs to go through Sizzle selector engine. #products는 이미 document.getElementById() 에 의해서 선택되어 지므로 div.id에만 Sizzle selector engine을 거칩니다.
+
     var $productIds = $("#products").find("div.id");
 
 4. Be specific on the right-hand side of your selector, and less specific on the left. [More Info ](http://learn.jquery.com/performance/optimize-selectors/) 오른쪽편에 특별히 사용할 선택자를 위치하고 나머지는 왼쪽에 위치시킵니다. [더 보기 ](http://learn.jquery.com/performance/optimize-selectors/)
@@ -82,8 +83,11 @@ jQuery 선택자는 언제나 재사용을 위한 변수의 객체를 반환합�
 6. Give your Selectors a Context. 선택자에 범위를 기제합니다.
 
     // SLOWER because it has to traverse the whole DOM for .class DOM전체에서 .class를 찾습니다.
+
     $('.class');
+
     // FASTER because now it only looks under class-container. class-container의 범위 안에서 찾습니다.
+
     $('.class', '#class-container');
 
 7. Avoid Universal Selectors. [More Info ](http://learn.jquery.com/performance/optimize-selectors/) 유니버셜 선택자(*) 사용을 피합니다. [더 보기 ](http://learn.jquery.com/performance/optimize-selectors/)
@@ -138,6 +142,7 @@ Performance comparison: [http://jsperf.com/jquery-append-vs-string-concat ](http
 3. Don’t Act on Absent Elements. [More Info ](http://learn.jquery.com/performance/dont-act-on-absent-elements/)  요소의 존재를 확인하고 실행하세요. [더 보기 ](http://learn.jquery.com/performance/dont-act-on-absent-elements/) 
 
     // BAD: This runs three functions before it realizes there's nothing in the selection 아무것도 없는 선택을 알기전에 세개의 함수가 실행됩니다.
+
     $("#nosuchthing").slideUp();
 
     // GOOD
