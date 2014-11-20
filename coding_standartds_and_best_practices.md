@@ -39,7 +39,11 @@
     var $myDiv = $("#myDiv");
     $myDiv.click(function(){...});
 
+<<<<<<< HEAD
 3. Use [camel case ](http://en.wikipedia.org/wiki/CamelCase) for naming variables. 변수의 이름은 [낙타표기법 ](http://en.wikipedia.org/wiki/CamelCase)를 사용하십시요.
+=======
+3. Use [camel case ](http://en.wikipedia.org/wiki/CamelCase) for naming variables. 변수의 이름은 [camel case ](http://en.wikipedia.org/wiki/CamelCase)를 사용하십시요.
+>>>>>>> origin/master
 
 # Selectors 선택자
 
