@@ -1,4 +1,5 @@
-번역 : [공잠](http://gongjam.co.kr), 스티븐 
+번역 : [공잠](http://gongjam.co.kr), 스티븐
+
 원문 : [http://lab.abhinayrathore.com/jquery-standards/](http://lab.abhinayrathore.com/jquery-standards/)
 
 #jQuery 로딩하기
