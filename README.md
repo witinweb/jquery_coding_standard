@@ -4,8 +4,8 @@
 
  1.Always try to use a CDN to include jQuery on your page. [CDN Benefits](http://www.sitepoint.com/7-reasons-to-use-a-cdn/) 여러분의 페이지에 jQuery를 삽입할 때 항상 CDN을 사용하도록 하십시요. [CDN을 사용해야하는 7가지 이유](http://www.sitepoint.com/7-reasons-to-use-a-cdn/) 
 
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js" type="text/javascript"><\/script>')</script>
+    &lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script&gt;window.jQuery || document.write('&lt;script src="js/jquery-2.1.1.min.js" type="text/javascript"&gt;&lt;\/script&gt;')&lt;/script&gt;
 
 [여기](http://lab.abhinayrathore.com/jquery-standards/#jQueryCND)에 가장 인기있는 jQuery CDN 리스트가 있습니다.
 
@@ -51,7 +51,7 @@
     var $products = $("div.products"); // SLOW
     var $products = $(".products"); // FAST
 
-3. Use find for _Id->Child_ nested selectors. The .find() approach is faster because the first selection is handled without going through the Sizzle selector engine. [More Info ](http://learn.jquery.com/performance/optimize-selectors/) Id의 자식 내 집합을 선택하기 위해서 find를 사용하세요. 아래 예제에서 볼 수 있듯이 아이디 선택자는 Sizzle 선택자 엔진(제이쿼리가 사용하는 선택자 엔진)을 거치지 않기 때문에 .find()로 접근하는 것이 더 빠릅니다. [더 보기 ](http://learn.jquery.com/performance/optimize-selectors/)
+3. Use find for _Id-&gt;Child_ nested selectors. The .find() approach is faster because the first selection is handled without going through the Sizzle selector engine. [More Info ](http://learn.jquery.com/performance/optimize-selectors/) Id의 자식 내 집합을 선택하기 위해서 find를 사용하세요. 아래 예제에서 볼 수 있듯이 아이디 선택자는 Sizzle 선택자 엔진(제이쿼리가 사용하는 선택자 엔진)을 거치지 않기 때문에 .find()로 접근하는 것이 더 빠릅니다. [더 보기 ](http://learn.jquery.com/performance/optimize-selectors/)
 
 
     // BAD, a nested query for Sizzle selector engine
@@ -86,7 +86,7 @@
 
 7. Avoid Universal Selectors. [More Info ](http://learn.jquery.com/performance/optimize-selectors/) 유니버셜 선택자(*) 사용을 피합니다. [더 보기 ](http://learn.jquery.com/performance/optimize-selectors/)
 
-    $('div.container > *'); // BAD
+    $('div.container &gt; *'); // BAD
     $('div.container').children(); // BETTER
 
 8. Avoid Implied Universal Selectors. When you leave off the selector, the universal selector (*) is still implied. [More Info ](http://learn.jquery.com/performance/optimize-selectors/) 암시적인 전체 선택자는 피합니다. 셀렉터를 누락시켰을 때, 전체 선택자(*)를 여전히 내포하게 됩니다. [더 보기 ](http://learn.jquery.com/performance/optimize-selectors/)
@@ -106,7 +106,7 @@
 
 1. Always detach any existing element before manipulation and attach it back after manipulating it.    [More Info ](http://learn.jquery.com/performance/detach-elements-before-work-with-them/)  항상 조작하기 전에 기존 요소를 분리하고 조작 후 다시 연결합니다.  [더 보기 ](http://learn.jquery.com/performance/detach-elements-before-work-with-them/)
 
-    var $myList = $("#list-container > ul").detach();
+    var $myList = $("#list-container &gt; ul").detach();
     //...a lot of complicated things on $myList
     $myList.appendTo("#list-container");
 
@@ -117,22 +117,22 @@ Performance comparison: [http://jsperf.com/jquery-append-vs-string-concat ](http
 
     // BAD
     var $myList = $("#list");
-    for(var i = 0; i < 10000; i++){
-        $myList.append("<li>"+i+"</li>");
+    for(var i = 0; i &lt; 10000; i++){
+        $myList.append("&lt;li&gt;"+i+"&lt;/li&gt;");
     }
 
     // GOOD
     var $myList = $("#list");
     var list = "";
-    for(var i = 0; i < 10000; i++){
-        list += "<li>"+i+"</li>";
+    for(var i = 0; i &lt; 10000; i++){
+        list += "&lt;li&gt;"+i+"&lt;/li&gt;";
     }
     $myList.html(list);
 
     // EVEN FASTER
     var array = [];
-    for(var i = 0; i < 10000; i++){
-        array[i] = "<li>"+i+"</li>";
+    for(var i = 0; i &lt; 10000; i++){
+        array[i] = "&lt;li&gt;"+i+"&lt;/li&gt;";
     }
     $myList.html(array.join(''));
 
@@ -171,16 +171,16 @@ Performance comparison: [http://jsperf.com/jquery-append-vs-string-concat ](http
 
 4. Document ready event handlers should be included from external files and inline JavaScript can be used to call the ready handle after any initial setup. Document ready 이벤트 핸들러를 외부 파일로 삽입시킬 수도 있습니다. 그리고 인라인 자바스크립트는 초기 설정 후 ready 핸들을 호출하는 데 사용할 수 있습니다.
 
-    <script src="my-document-ready.js"></script>
-    <script>
+    &lt;script src="my-document-ready.js"&gt;&lt;/script&gt;
+    &lt;script&gt;
         // Any global variable set-up that might be needed.
         $(document).ready(initPage); // or $(initPage);
-    </script>
+    &lt;/script&gt;
 
 5. DO NOT use behavioral markup in HTML (JavaScript inlining), these are debugging nightmares. Always bind events with jQuery to be consistent so it's
 easier to attach and remove events dynamically. HTML에 동적 마크업을 사용하지 마십시오(JavaScript inlining), 이것은 디버깅의 악몽입니다. 항상 일관되게 제이쿼리로 이벤트를 바인드하면 이벤트를 동적으로 붙이거나 제거하기 쉽습니다.
 
-    <a id="myLink" href="#" onclick="myEventHandler();">my link</a> <!-- BAD -->
+    &lt;a id="myLink" href="#" onclick="myEventHandler();"&gt;my link&lt;/a&gt; &lt;!-- BAD --&gt;
     $("#myLink").on("click", myEventHandler); // GOOD
 
 6. When possible, use custom [namespace](http://api.jquery.com/event.namespace/) for events. It's easier to unbind the exact
