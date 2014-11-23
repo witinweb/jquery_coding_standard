@@ -1,4 +1,4 @@
-번역 : [공잠](http://gongjam.co.kr), 스티븐
+번역 : [공잠](http://gongjam.co.kr), [스키머](http://schemr.tumblr.com)
 
 원문 : [http://lab.abhinayrathore.com/jquery-standards/](http://lab.abhinayrathore.com/jquery-standards/)
 
@@ -6,8 +6,8 @@
 
 1.여러분의 페이지에 jQuery를 삽입할 때 항상 CDN을 사용하도록 하십시요. [CDN을 사용해야하는 7가지 이유](http://www.sitepoint.com/7-reasons-to-use-a-cdn/) 
 
-    &lt;script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
-    &lt;script&gt;window.jQuery || document.write('&lt;script src="js/jquery-2.1.1.min.js" type="text/javascript"&gt;&lt;\/script&gt;')&lt;/script&gt;
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-2.1.1.min.js" type="text/javascript"><\/script>')</script>
 
 [여기](http://lab.abhinayrathore.com/jquery-standards/#jQueryCND)에 가장 인기있는 jQuery CDN 리스트가 있습니다.
 
@@ -309,8 +309,11 @@
 #자료
 
 *제이쿼리 성능: http://learn.jquery.com/performance/ ](http://learn.jquery.com/performance/)
+
 *제이쿼리 학습: [http://learn.jquery.com ](http://learn.jquery.com/)
 *제이쿼리 API 문서: [http://api.jquery.com/ ](http://api.jquery.com/)
 *제이쿼리 Coding Standards and Best Practice: [http://www.jameswiseman.com/blog/2010/04/20/jquery-standards-and-best-practice/](http://www.jameswiseman.com/blog/2010/04/20/jquery-standards-and-best-practice/)
+
 *제이쿼리 Cheatsheet: [http://lab.abhinayrathore.com/jquery-cheatsheet/](http://lab.abhinayrathore.com/jquery-cheatsheet/)
+
 *제이쿼리 플러그인 표준코드:[http://stefangabos.ro/jquery/jquery-plugin-boilerplate-revisited/](http://stefangabos.ro/jquery/jquery-plugin-boilerplate-revisited/)
